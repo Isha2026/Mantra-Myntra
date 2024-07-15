@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            /* flex-direction: column; */
+            /* background: linear-gradient(45deg, #560cce, #a60c0c); */
+        }
+        .headline {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .results {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .result-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .result-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .result-text {
+            font-size: 18px;
+            color: rgb(49, 48, 48);
+            margin-top: 8vh;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .back{
+            position: absolute;
+            top:1%;
+            left:1%;
+            margin-left: 10px;
+            height: 40px;
+            width:40px;
+            border:none;
+            font-weight: 900;
+            border-radius:50%;
+            background-color: rgb(85, 85, 85);
+            /* border-radius: ; */
+            color:white
+            
+        }
+        .main{
+            top:0;
+            background-color: rgb(224, 201, 201);
+            height:92%;
+            width:80%;
+            padding:30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image{
+            height: 50vh;
+            width: 50vh;
+            margin-right: 50px;
+            background-image: url('images/color3.jpg');
+            background-size: contain;
+        }
+        
+    </style>
+</head>
+<body>
+    <button class="back" onclick="goBack()">&lt;--</button>
+
+    <div class="main">
+        <div class="image"></div>
+    
+        <!-- <div class="headline">Your Choices</div> -->
+        <div class="results" id="results-container">
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        const choice1 = localStorage.getItem('choice1');
+        const choice2 = localStorage.getItem('choice2');
+
+        const choiceTexts = {
+            'apple': 'You have an apple-shaped body, and your figure will look fabulous in clothes that highlight your shoulders and legs: \n\n Tops: V-necks, wrap tops, tops with vertical details.\n Bottoms: Flared or wide-leg pants, A-line skirts.\n Dresses: Empire waist, A-line dresses.\n Outerwear: Single-breasted jackets, tailored coats that cinch at the waist.\n \n  You\'re absolutely radiant!',
+
+            'rectangle': 'You have a rectangle-shaped body, and your figure will be beautifully enhanced by wearing clothes that create the illusion of curves, like: \n\n Tops: Ruffled or layered tops to add volume.\n Bottoms: High-waisted pants, flared or wide-leg pants.\n Dresses: Peplum dresses, belted dresses to create a waistline.\n Outerwear: Structured blazers, coats with belts or details at the waist.\n \n  You\'re absolutely stunning!',
+
+            'pear': 'You have a pear-shaped body, and your figure will be beautifully complemented by wearing: \n \n \tTops: Bright-colored or patterned tops, boat necks, scoop necks \n \tBottoms: Dark-colored, straight-leg or bootcut pants, A-line skirts.\n \t Dresses: A-line or fit-and-flare dresses.\n \t Outerwear: Structured jackets that end above the hips. \n \n You\'re absolutely adorable!',
+
+            'hourglass': 'You have an hourglass-shaped body, and your figure will be beautifully accentuated by wearing clothes that highlight your waist.\n\n Tops: Fitted tops that accentuate the waist. \n Bottoms: High-waisted skirts and pants to highlight the waist. \n Dresses: Wrap dresses, fit-and-flare dresses. \n Outerwear: Tailored jackets, belted coats. \n \n  You\'re absolutely gorgeous!',
+
+            'oval': 'You have an oval-shaped body, and your figure will look fantastic in clothes that create the illusion of a defined waist. Tops: V-necks, tops that elongate the torso.\n Bottoms: Straight-leg or bootcut pants, skirts that fall just below the knee.\n Dresses: Empire waist, wrap dresses.\n Outerwear: Long, structured jackets, open-front cardigans.\n \n  You\'re absolutely lovely!',
+
+            'summer': 'You selected the Summer season.\n\n You\'ll look your best in outfits with Cool and Soft tones: Light, cool, and muted colors with a blue undertone.', // 'img/option1.jpg', // Replace with the actual image path for Option 1
+            
+            'autumn': 'You selected the Autumn season. \n\n You\'ll look your best in outfits with Warm and Deep tones: Warm, rich, and earthy colors with a golden undertone.', //'img/option2.jpg', // Replace with the actual image path for Option 2
+
+            'winter': 'You selected the Winter season.\n\n You\'ll look your best in outfits with Cool and Deep tones: Cool, vibrant, and clear colors with a blue undertone.', //'img/option3.jpg', // Replace with the actual image path for Option 3
+            'spring': 'You selected the Spring season.\n\n You\'ll look your best in outfits with Warm and Bright tones: Soft, warm, and light colors with a clear undertone.' // 'img/option4.jpg'  // Replace with the actual image path for Option 4
+        };
+
+   
+        const resultsContainer = document.getElementById('results-container');
+
+        const resultText1 = document.createElement('div');
+        resultText1.className = 'result-text';
+        resultText1.innerText = choiceTexts[choice1];
+        resultsContainer.appendChild(resultText1);
+
+        // Display text for choice2
+        const resultText2 = document.createElement('div');
+        resultText2.className = 'result-text';
+        resultText2.innerText = choiceTexts[choice2];
+        resultsContainer.appendChild(resultText2);
+
+
+    </script>
+
+</body>
+
+</html>

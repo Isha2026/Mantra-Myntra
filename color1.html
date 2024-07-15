@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+        }
+        .main{
+            /* text-align: center; */
+            height: 100vh;
+            width:100vw;
+            background-image: url(images/magic3.jpg);
+             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
+        .darker{
+            height:100%;
+            width:100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            /* gap: 20px; */
+            align-items: center; 
+        }
+        /* .headline{
+            font-size: 80px;
+            font-weight: 800;
+            color: white;
+        } */
+        .guide{
+            color: white;
+            font-size: 18px;
+            margin: 15px;
+        }
+        .container{
+            width:38vw;
+            height: 90vh;
+            min-height: 100px;
+            position: relative;
+            min-width: 100px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+        }
+        .video{
+            width:100%;
+            height: 58vh;
+            border-radius: 10px;
+        }
+        .overlay{
+            border-radius: 10px 10px 0 0 ;
+
+            /*idk why this takes up all the space*/
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 59vh;
+            background-color: rgb(255, 192, 203);
+            z-index: 1;
+            mask: radial-gradient(circle at center, transparent 30%, rgb(198, 21, 21) 30%);
+            /* -webkit-mask: radial-gradient(circle at center, transparent 30%, rgb(201, 201, 201) 30%);
+            mask-composite: exclude;
+            -webkit-mask-composite: exclude; */
+
+        }
+        .seasons{
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            height: 30vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: space-around;
+            background-color: #272727;
+
+
+        }
+        .season{
+            height: 99%;
+            width: 24%;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgb(179, 179, 179);
+            justify-content: center;
+        }
+        .color-palette{
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+            margin: 10px;
+            
+        }
+        .color-block{
+            height: 40px;
+            width: 40px;
+            border-radius: 3px;
+        }
+        .result{
+            height: auto;
+            width: 20vw;
+            background-color: #000000a7;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+
+        }
+        button{
+            font-size: 20px;
+            border: none;
+            margin:5px;
+            pointer-events: all;
+            border-radius: 4px;
+            background-color: rgb(145, 145, 145);
+        }
+        button:hover{               /*button aur : ke beech space hoga to wont work*/
+            background-color: #d4d4d498;
+            /* height: 105%; */
+
+        }
+        .back{
+            position: absolute;
+            top:1%;
+            left:1%;
+            margin-left: 10px;
+            height: 40px;
+            width:40px;
+            border:none;
+            font-weight: 900;
+            border-radius:50%;
+            background-color: rgb(87, 0, 137);
+            /* border-radius: ; */
+            color:white
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="darker">
+            <button class="back" onclick="goBack()">&lt;--</button>
+
+            <div class="colorAnalysis">
+
+            <div class="guide">
+                <p>
+                <b>Guide </b>: Ensure your face is well-lit and your screen brightness is adequate. </br>Explore the various shades in the seasonal palettes and find the one that best enhances your natural radiance.
+                </p>
+            </div>
+            <div class="container">
+                <video class="video" autoplay></video>
+                <div class="overlay"> </div>
+
+                <div class="seasons">
+
+                <div class="season" id="spring">
+                    <div class="color-palette">
+                        <div class="color-block" style="background-color: #FFDAB9;"></div>
+                        <div class="color-block" style="background-color: #FF7F50;"></div>
+                        <div class="color-block" style="background-color: #FFD700;"></div>
+                        <div class="color-block" style="background-color: #90EE90;"></div>
+                        <div class="color-block" style="background-color: #40E0D0;"></div>
+                        <div class="color-block" style="background-color: #FF69B4;"></div>
+                    </div>
+                    <div class="season-name">Spring</div>
+                    </div>
+
+                    <div class="season" id="summer">
+                        <div class="color-palette">
+                            <div class="color-block" style="background-color: #ADD8E6;"></div>
+                            <div class="color-block" style="background-color: #E6E6FA;"></div>
+                            <div class="color-block" style="background-color: #FFB6C1;"></div>
+                            <div class="color-block" style="background-color: #D3D3D3;"></div>
+                            <div class="color-block" style="background-color: #98FB98;"></div>
+                            <div class="color-block" style="background-color: #E0B0FF;"></div>
+                        </div>
+                        <div class="season-name">Summer</div>
+                    </div>
+
+                    <div class="season" id="autumn">
+                        <div class="color-palette">
+                            <div class="color-block" style="background-color: #556B2F;"></div>
+                            <div class="color-block" style="background-color: #FFDB58;"></div>
+                            <div class="color-block" style="background-color: #CC5500;"></div>
+                            <div class="color-block" style="background-color: #8B4513;"></div>
+                            <div class="color-block" style="background-color: #CB4154;"></div>
+                            <div class="color-block" style="background-color: #B7410E;"></div>
+                        </div>
+                        <div class="season-name">Autumn</div>
+                    </div>
+
+                    <div class="season" id="winter">
+                        <div class="color-palette">
+                            <div class="color-block" style="background-color: #50C878;"></div>
+                            <div class="color-block" style="background-color: #4169E1;"></div>
+                            <div class="color-block" style="background-color: #FF0000;"></div>
+                            <div class="color-block" style="background-color: #000000;"></div>
+                            <div class="color-block" style="background-color: #AFEEEE;"></div>
+                            <div class="color-block" style="background-color: #4B0082;"></div>
+                        </div>
+                        <div class="season-name">Winter</div>
+                    </div>
+
+                </div>
+            </div>
+            
+            </div>
+
+            <div class="result">
+                <p style="margin-bottom: 10px;">Choose the seasons which resonates with you the most:</p>
+                <button onclick="chooseOption('spring')" class="spring">Spring</button>
+                <button onclick="chooseOption('summer')" class="summer">Summer</button>
+                <button onclick="chooseOption('autumn')" class="autumn">Autumn</button>
+                <button onclick="chooseOption('winter')" class="winter">Winter</button>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+    <script>
+        const video = document.querySelector('.video');
+        const overlay = document.querySelector('.overlay');
+        const colorBlocks = document.querySelectorAll('.color-block');
+        
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error('Error accessing the webcam: ', err);
+            });
+
+        // Change the overlay color based on the clicked color block
+        colorBlocks.forEach(block => {
+            block.addEventListener('click', (event) => {
+                const color = event.target.style.backgroundColor;
+                overlay.style.backgroundColor = color;
+            });
+        });
+
+        function chooseOption(option) {
+            localStorage.setItem('choice1', option);
+            window.location.href = 'color2.html';
+        }
+        function goBack() {
+            window.history.back();
+        }
+        
+    </script>
+</body>
+</html>

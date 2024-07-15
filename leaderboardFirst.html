@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congratulations!</title>
+
+  <style>
+    body {
+    margin: 0;
+    padding: 0;
+    /* font-family: Arial, sans-serif; */
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #background-video {
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0.5;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(145, 33, 109);
+    /* font-family: Palatino; */
+    font-family: Marker Felt;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .text-overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    /* font-family: Marker Felt; */
+  }
+  
+  .text-overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .leaderboard-link {
+    color: rgb(145, 33, 109);
+  }
+
+
+
+  #rewardButton {
+    background-color: #ba99e2;
+    color: white;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border-style: ridge;
+    /* border-color: brown; */
+    font-family: Palatino;
+    /* font-family: Marker Felt; */
+    font-weight: 20px;
+  }
+
+  #rewardButton:hover {
+    color: rgb(109, 16, 80);
+  }
+  
+  .reward-popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    border-radius: 8px;
+    /* background-color: black; */
+    background-color: rgba(106, 111, 115, 0.4);
+    font-family: Palatino;
+  }
+  
+  .heading-main {
+    text-decoration: underline;
+    margin-bottom: 50px;
+    font-family: Palatino;
+  }
+
+  .line {
+    text-align: left;
+    margin-bottom: 15px;
+    font-family: Palatino;
+  }
+
+  .reward-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    height: 230px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    font-family: Palatino;
+  }
+  
+  .close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: Palatino;
+  }
+  
+  .close-button:hover,
+  .close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Palatino;
+  }
+      /* GO BACK */
+  .back-icon-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    color: black;;
+  }
+
+  .back-icon {
+    display: inline-block;
+    /* background-color: #333; */
+    color: black;
+    background-color: chocolate;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-icon:hover {
+    background-color: #e9abd4;
+  }
+
+  .back-icon i {
+    font-size: 18px;
+    color: black;
+  }
+  </style>
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="video-container">
+    <video id="background-video" loop muted autoplay>
+      <source src="images/confetti.mp4" type="video/mp4">
+    </video>
+    <div class="text-overlay">
+      <h1 class="heading">Congratulations!</h1>
+      <p>You've secured a coveted spot on the leaderboard - that's no small feat!</p>
+      
+      
+    <button id="rewardButton">Your Reward</button>
+    <div id="rewardPopup" class="reward-popup">
+      <div class="reward-content">
+        <span class="close-button">&times;</span>
+        <h2 class="heading-main">You Earned...</h2>
+        <ul>
+          <li class="line">Early access to exclusive sales or flash deals</li>
+          <li class="line">Special discount coupon for 10% off on your next purchase</li>
+          <li class="line">Free shipping on your order</li>
+        </ul>
+      </div>
+    </div>
+    <br>
+  
+    <p>Go to <a href="leaderboard.html" class="leaderboard-link">leaderboard</a> to find out more information.</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p class="last">Keep Up with posting good and reliable reviews and you can earn much more exciting prizes!</p>
+
+
+      
+    </div>
+
+    <!-- GO BACK -->
+    <div class="back-icon-container">
+      <a href="second.html" class="back-icon">
+        <i class="fa fa-arrow-left"></i>
+      </a>
+    </div>
+    
+  </div>
+
+
+
+
+
+  <!-- <script src="scripting.js"></script> -->
+   <script>
+    window.addEventListener('DOMContentLoaded', () => {
+    const videoElement = document.getElementById('background-video');
+    const textOverlay = document.querySelector('.text-overlay');
+  
+    setTimeout(() => {
+      textOverlay.style.animation = 'none';
+    }, 6000);
+  
+    videoElement.addEventListener('ended', () => {
+      videoElement.currentTime = 0;
+      videoElement.play();
+    });
+  });
+
+
+
+
+
+var rewardButton = document.getElementById("rewardButton");
+var rewardPopup = document.getElementById("rewardPopup");
+var closeButton = document.getElementsByClassName("close-button")[0];
+
+rewardButton.addEventListener("click", function() {
+  rewardPopup.style.display = "block";
+});
+
+closeButton.addEventListener("click", function() {
+  rewardPopup.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+  if (event.target == rewardPopup) {
+    rewardPopup.style.display = "none";
+  }
+});
+
+// GO BACK
+document.querySelector('.back-icon').addEventListener('click', () => {
+      window.history.back();
+    });
+</script>
+</body>
+</html>

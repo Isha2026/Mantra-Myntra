@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myntra Leaderboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      /* font-family: Arial, sans-serif; */
+      margin: 0;
+      padding: 0;
+      background-image: url('images/12.jpg'); 
+      opacity: 0.8;
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    table {        
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+    }
+
+    .heading {
+        margin-top: 50px;
+        text-align: center;
+        font-family: Palatino;
+        margin-bottom: 50px;
+        color: #4d1943;
+    }
+
+    #leaderboard{
+        border-radius: 7px;
+        border: 3px solid #7b0263;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #db7272;
+      /* border-bottom: 1px solid #ddd; */
+    }
+
+    th:nth-child(1), td:nth-child(1) {
+      width: 10%;
+    }
+
+    th:nth-child(2), td:nth-child(2) {
+      width: 50%;
+    }
+
+    th:nth-child(3), td:nth-child(3) {
+      width: 20%;
+    }
+
+    th {
+      /* background-color: #f2f2f2; */
+      background-color: #d3dee2;
+    }
+
+    .total-likes {
+      cursor: pointer;
+      color: rgb(64, 3, 104);
+      text-decoration: underline;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #dadada;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 7px;
+      border: 3px solid #7b0263;
+      width: 60%;
+    }
+
+    .modal-content th, .modal-content td {
+      padding: 5px;
+      width: 15%;
+    }
+
+    /* GO BACK */
+.back-icon-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.back-icon {
+  display: inline-block;
+  /* background-color: #333; */
+  color: black;
+  padding: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.back-icon:hover {
+  background-color: #e9abd4;
+}
+
+.back-icon i {
+  font-size: 18px;
+}
+
+
+  </style>
+</head>
+<body>
+
+    <!-- <div class="backimage">
+        <img class="background" src="extra image/back-img.jpeg">
+    </div> -->
+
+  <h1 class="heading">Leaderboard for Top Myntra Reviewers</h1>
+  <table id="leaderboard">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Reviewer Name</th>
+        <th>Total Likes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Priya Sharma</td>
+        <td class="total-likes">2,345</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Aditya Kapoor</td>
+        <td class="total-likes">1,980</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Neha Gupta</td>
+        <td class="total-likes">1,750</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Raj Malhotra</td>
+        <td class="total-likes">1,650</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Pooja Sharma</td>
+        <td class="total-likes">1,520</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Arjun Singh</td>
+        <td class="total-likes">1,425</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Riya Chopra</td>
+        <td class="total-likes">1,380</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Aman Verma</td>
+        <td class="total-likes">1,310</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Nisha Mehta</td>
+        <td class="total-likes">1,275</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Rohan Sharma</td>
+        <td class="total-likes">1,240</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Simran Malhotra</td>
+        <td class="total-likes">1,205</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Rahul Gupta</td>
+        <td class="total-likes">1,170</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Kajal Chopra</td>
+        <td class="total-likes">1,135</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Karan Sharma</td>
+        <td class="total-likes">1,100</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Neelam Kapoor</td>
+        <td class="total-likes">1,065</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Vishal Malhotra</td>
+        <td class="total-likes">1,030</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Priya Gupta</td>
+        <td class="total-likes">995</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Amit Verma</td>
+        <td class="total-likes">960</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>Riya Sharma</td>
+        <td class="total-likes">925</td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>Arjun Kapoor</td>
+        <td class="total-likes">890</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Detailed Likes for Priya Sharma</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Likes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Detailed likes data will be dynamically inserted here -->
+        </tbody>
+      </table>
+      <span class="close">&times;</span>
+    </div>
+  </div>
+
+
+
+  <!-- GO BACK -->
+  <div class="back-icon-container">
+    <a href="second.html" class="back-icon">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+  </div>
+
+
+
+  <script>
+    const totalLikesElements = document.querySelectorAll('.total-likes');
+    const modal = document.getElementById('modal');
+    const closeBtn = document.querySelector('.close');
+
+    totalLikesElements.forEach((element, index) => {
+      element.addEventListener('click', () => {
+        // Fetch detailed likes data for the selected reviewer
+        const detailedLikesData = getDetailedLikesData(index + 1);
+        displayDetailedLikes(detailedLikesData);
+        modal.style.display = 'block';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    function getDetailedLikesData(reviewerId) {
+      // Fetch detailed likes data from a database or API based on the reviewerId
+      // This is a sample data structure
+      const detailedLikesData = [
+        { product: 'Myntra Women Floral Print Maxi Dress', likes: 785 },
+        { product: 'Roadster Men Slim Fit Jeans', likes: 650 },
+        { product: 'Mast & Harbour Women Printed T-shirt', likes: 450 },
+        { product: 'Puma Unisex Sneakers', likes: 320 },
+        { product: 'Dressberry Women Floral Printed Kurta', likes: 240 }
+      ];
+      return detailedLikesData;
+    }
+
+    function displayDetailedLikes(data) {
+      const tableBody = document.querySelector('#modal .modal-content tbody');
+      tableBody.innerHTML = '';
+
+      data.forEach(item => {
+        const row = document.createElement('tr');
+        const productCell = document.createElement('td');
+        const likesCell = document.createElement('td');
+
+        productCell.textContent = item.product;
+        likesCell.textContent = item.likes;
+
+        row.appendChild(productCell);
+        row.appendChild(likesCell);
+        tableBody.appendChild(row);
+      });
+    }
+
+
+    // GO BACK
+    document.querySelector('.back-icon').addEventListener('click', () => {
+      window.history.back();
+    });
+  </script>
+</body>
+</html>

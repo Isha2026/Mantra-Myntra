@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bodytype</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .main{
+            height: 100vh;
+            width: 100vw;
+            z-index: 1.4;
+            background-image: url('images/color2.jpg');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+        #correct {
+            margin-top: 17px;
+            margin-bottom: 97px;
+            height: 295px;
+        }
+        .imageMy {
+            height: 290px;
+            width: 130px;
+            margin-top: 9px;
+            margin-bottom: 90px;
+        }
+        .headline{
+            font-size: 50px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+            /* background-color: rgba(0, 0, 0, 0.751); */
+            /* border-radius: 14px; */
+        }
+        .bodytypes{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bodytype{
+            height: 70vh;
+            width:14vw;
+            background-color: rgba(0, 0, 0, 0.73);
+            /* margin:12px; */
+            /* border-radius: 8px; */
+
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .image{
+            pointer-events: none;
+            margin: 5%;
+            height: 56vh;
+            min-width: 7.5vw;
+            /* width:90%; */
+            background-size: contain;
+            background-repeat: no-repeat;
+
+        }
+        .text{
+            pointer-events: none;
+            height: 24vh;
+            width: 90%;
+            color: white;
+            font-size: 20px;
+            font-weight: bold; 
+            text-align: center;
+            padding-top: 27%;
+            /* display: flex;
+            flex-direction: column;
+            align-items: center;            */
+        }
+        /* #rectangle .image{
+            background-image: url('images/rectangle.jpg');
+        }
+        #apple .image{
+            background-image: url('images/apple.jpg');
+        }
+        #oval .image{
+            background-image: url('images/oval.jpg');
+        }
+        #pear .image{
+            background-image: url('images/pear.jpg');
+        }
+        #hourglass .image{
+            background-image: url('images/hourglass.jpg');
+        } */
+        button{
+            border: none;
+            outline:none;
+            overflow: hidden;
+
+        }
+        button :hover{
+            background-color: rgba(0, 0, 0, 0.8);
+            
+        }
+        .back{
+            position: absolute;
+            top:1%;
+            left:1%;
+            margin-left: 10px;
+            height: 40px;
+            width:40px;
+            border:none;
+            font-weight: 900;
+            border-radius:50%;
+            background-color: rgb(186, 186, 186);
+            /* border-radius: ; */
+            color:rgb(31, 31, 31)
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <button class="back" onclick="goBack()">&lt;--</button>
+
+        <div class="headline">Choose your Bodytype</div>
+        <div class="bodytypes">
+
+            <button onclick="chooseOption2('rectangle')">
+            <div class="bodytype" id="rectangle">
+                <!-- <div class="image"> </div> -->
+                <div class="image"> 
+                    <img class="imageMy" src="images/rectangle.jpg" alt="">
+                </div>
+                <div class="text">Balanced bust and hips with little waist definition.</div>
+            </div>
+            </button>
+
+            <button onclick="chooseOption2('apple')">
+            <div class="bodytype" id="apple">
+                <div >
+                    <img class="imageMy" id="correct" src="images/apple.jpg" alt="">
+                </div>
+                <div class="text">Broader shoulders and bust, narrower hips.</div>
+
+            </div>
+        </button>
+
+
+        <button onclick="chooseOption2('oval')">
+            <div class="bodytype" id="oval">
+                <div class="image"> 
+                    <img class="imageMy" src="images/oval.jpg" alt="">
+                </div>
+                <div class="text">Larger bust, broader waist, narrower hips.</div>
+
+            </div>
+        </button>
+
+
+        <button onclick="chooseOption2('pear')">
+
+            <div class="bodytype" id="pear">
+                <div class="image"> 
+                    <img class="imageMy" src="images/pear.jpg" alt="">
+                </div>
+                <div class="text">Wider hips and thighs, smaller bust and shoulders.</div>
+
+            </div>
+        </button>
+
+        <button onclick="chooseOption2('hourglass')">
+            <div class="bodytype" id="hourglass">
+                <div class="image"> 
+                    <img class="imageMy" src="images/hourglass.jpg" alt="">
+                </div>
+                <div class="text">Balanced bust and hips with a clearly defined waist.</div>
+
+            </div>
+        </button>
+
+
+        </div>
+    </div>
+
+    <script>
+        function chooseOption2(option) {
+            localStorage.setItem('choice2', option);
+            // window.location.href = 'myResult.html';
+            window.location.href = 'color3.html';
+
+        }
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+</body>
+</html>
